@@ -25,9 +25,43 @@ To write a Python program to insert elements at REAR END of deque using a collec
 ### PROGRAM  
 
 ```
+# Reg.No: 212223060057
+# Name: DINESH KUMAR A
+# Exp.No: 39 - DEQUE Insertion
+
+from collections import deque
+
+dq = deque()
+
+# Taking input from user
+print("Enter integers to insert into deque (press Enter to stop):")
+while True:
+    val = input()
+    if val == "":
+        break
+    dq.append(int(val))
+
+# Appending additional elements at rear
+dq.append(14)
+dq.append(15)
+
+# Display the deque
+print("The deque after appending at right is :")
+print(dq)
 
 ```
 
 ### OUTPUT
+```
+Enter integers to insert into deque (press Enter to stop):
+1
+3
+5
+7
 
+The deque after appending at right is :
+deque([1, 3, 5, 7, 14, 15])
+
+```
 ### RESULT
+Thus, the Python program to insert elements at the REAR END of a deque using built-in functions was successfully executed and verified.
