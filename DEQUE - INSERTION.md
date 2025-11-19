@@ -31,37 +31,22 @@ To write a Python program to insert elements at REAR END of deque using a collec
 
 from collections import deque
 
-dq = deque()
+# Initial deque with input characters
+d = deque(['p', 'y', 't'])
 
-# Taking input from user
-print("Enter integers to insert into deque (press Enter to stop):")
-while True:
-    val = input()
-    if val == "":
-        break
-    dq.append(int(val))
+# Appending elements at the rear end
+d.append('h')
+d.append('o')
+d.append('n')
 
-# Appending additional elements at rear
-dq.append(14)
-dq.append(15)
-
-# Display the deque
+# Printing the result
 print("The deque after appending at right is :")
-print(dq)
+print(d)
 
 ```
 
 ### OUTPUT
-```
-Enter integers to insert into deque (press Enter to stop):
-1
-3
-5
-7
+<img width="963" height="211" alt="image" src="https://github.com/user-attachments/assets/a70c4dba-d6b3-42f9-9d87-6c99bb9d9044" />
 
-The deque after appending at right is :
-deque([1, 3, 5, 7, 14, 15])
-
-```
 ### RESULT
 Thus, the Python program to insert elements at the REAR END of a deque using built-in functions was successfully executed and verified.
