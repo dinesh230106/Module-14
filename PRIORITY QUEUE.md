@@ -34,58 +34,53 @@ To write a Python program for simple implementation of Priority Queue using Queu
 # Name: DINESH KUMAR A
 # Exp.No: 37 - Priority Queue
 
-class PriorityQueue:
-    def __init__(self):
-        self.queue = []
+# A simple implementation of Priority Queue
+# using Queue.
+class PriorityQueue(object):
+	def __init__(self):
+		self.queue = []
 
-    def __str__(self):
-        return ' '.join([str(i) for i in self.queue])
+	def __str__(self):
+		return ' '.join([str(i) for i in self.queue])
 
-    def isEmpty(self):
-        return len(self.queue) == 0
+	# for checking if the queue is empty
+	def isEmpty(self):
+		return len(self.queue) == 0
 
-    def insert(self, data):
-        self.queue.append(data)
+	# for inserting an element in the queue
+	def insert(self, data):
+		self.queue.append(data)
 
-    def delete(self):
-        if self.isEmpty():
-            return "Queue is empty"
-        max_val = max(self.queue)
-        self.queue.remove(max_val)
-        return max_val
+	# for popping an element based on Priority
+	def delete(self):
+		try:
+			max_val = 0
+			for i in range(len(self.queue)):
+				if self.queue[i] > self.queue[max_val]:
+					max_val = i
+			item = self.queue[max_val]
+			del self.queue[max_val]
+			return item
+		except IndexError:
+			print()
+			exit()
 
-# Main Program
-pq = PriorityQueue()
-n = int(input("Enter number of elements to insert: "))
-for i in range(n):
-    val = int(input(f"Enter element {i+1}: "))
-    pq.insert(val)
 
-print("\nPriority Queue elements:")
-print(pq)
-
-print("\nDeleting elements in priority order:")
-while not pq.isEmpty():
-    print(pq.delete(), end=' ')
-
+myQueue = PriorityQueue()
+n=int(input())	
+for i in range(0, n):
+    ele = int(input())
+    myQueue.insert(ele)
+	
+print(myQueue)		
+while not myQueue.isEmpty():
+	print(myQueue.delete())
 ```
 
 ### OUTPUT
-```
-Enter number of elements to insert: 5
-Enter element 1: 10
-Enter element 2: 30
-Enter element 3: 20
-Enter element 4: 50
-Enter element 5: 40
+<img width="655" height="427" alt="image" src="https://github.com/user-attachments/assets/74bcb9fb-1506-4a56-9f05-c0f04b16e669" />
 
-Priority Queue elements:
-10 30 20 50 40
 
-Deleting elements in priority order:
-50 40 30 20 10
-
-```
 
 ### RESULT
 Thus, the Python program for simple implementation of Priority Queue using a list was successfully executed and verified.
