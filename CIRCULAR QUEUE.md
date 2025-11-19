@@ -30,67 +30,59 @@ To write a Python program with a function to insert float values into a Circular
 # Name: DINESH KUMAR A
 # Exp.No: 36 - Circular Queue Implementation
 
-class CircularQueue:
-    def __init__(self, max_size):
-        self.max_size = max_size
-        self.queue = [0] * max_size
-        self.head = 0
-        self.tail = 0
-        self.size = 0
+class Queue:
+    def __init__(self, size):
+        self.items = [0] * size
+        self.max_size = size
+        self.head, self.tail, self.size = 0, 0, 0
 
-    def insert(self, value):
-        if self.size == self.max_size:
-            print("Queue is full")
+    def enqueue(self, item):
+        if self.is_list_full():
+            print(f'Queue is full')
             return
-        self.queue[self.tail] = float(value)
+
+        #print(f'Inserting {item}')
+        self.items[self.tail] = item
         self.tail = (self.tail + 1) % self.max_size
         self.size += 1
-        print(f"Inserted {value} into the queue.")
 
-    def display(self):
+    def dequeue(self):
+        item = self.items[self.head]
+        self.head = (self.head + 1) % self.max_size
+        self.size -= 1
+
+        return item
+
+    def is_list_full(self):
+        if self.size == self.max_size:
+            return True
+        return False
+
+    def is_empty(self):
         if self.size == 0:
-            print("Queue is empty")
-            return
-        print("Queue elements: ", end="")
-        i = self.head
-        count = 0
-        while count < self.size:
-            print(self.queue[i], end=" ")
-            i = (i + 1) % self.max_size
-            count += 1
-        print()
+            return True
+        return False
 
-# Main Program
-max_size = int(input("Enter the size of the Circular Queue: "))
-cq = CircularQueue(max_size)
+size=int(input())
+queue = Queue(size)
+str=float(input())
+str1=float(input())
+str2=float(input())
+queue.enqueue(str)
+queue.enqueue(str1)
+queue.enqueue(str2)
 
-# Insert elements
-n = int(input("Enter number of elements to insert: "))
-for _ in range(n):
-    val = input("Enter a float value to insert: ")
-    cq.insert(val)
-
-# Display the queue
-cq.display()
+    
+print(queue.items)
+#print(queue.head)
+#print(queue.tail)
 
 
 ```
 
 ### OUTPUT
-```
-Enter the size of the Circular Queue: 5
-Enter number of elements to insert: 4
-Enter a float value to insert: 1.2
-Inserted 1.2 into the queue.
-Enter a float value to insert: 3.4
-Inserted 3.4 into the queue.
-Enter a float value to insert: 5.6
-Inserted 5.6 into the queue.
-Enter a float value to insert: 7.8
-Inserted 7.8 into the queue.
-Queue elements: 1.2 3.4 5.6 7.8
+<img width="678" height="346" alt="image" src="https://github.com/user-attachments/assets/74086305-4268-4411-b1fc-7489ec2f1601" />
 
-```
 
 ### RESULT
 Thus, the Python program to insert float values into a Circular Queue was successfully executed and verified.
