@@ -35,59 +35,77 @@ To write a Python program to implement CPU Process Scheduling using a queue.
 # Reg.No: 212223060057
 # Name: DINESH KUMAR A
 # Exp.No: 40
-# APPLICATIONS OF QUEUE - CPU PROCESS SCHEDULING
-
+# Function to Calculate waiting time
+# and average waiting time
 def CalculateWaitingTime(at, bt, N):
-    wt = [0] * N
-    wt[0] = 0
-    total_waiting_time = 0
 
-    print("P.No.\tArrival Time\tBurst Time\tWaiting Time")
-    print(f"1\t\t{at[0]}\t\t{bt[0]}\t\t{wt[0]}")
+	# Declare the array for waiting
+	# time
+	wt = [0]*N;
 
-    for i in range(1, N):
-        wt[i] = (at[i - 1] + bt[i - 1] + wt[i - 1]) - at[i]
-        if wt[i] < 0:
-            wt[i] = 0
-        print(f"{i+1}\t\t{at[i]}\t\t{bt[i]}\t\t{wt[i]}")
+	# Waiting time for first process
+	# is 0
+	wt[0] = 0;
 
-    total_waiting_time = sum(wt)
-    average = total_waiting_time / N
-    print("\nAverage Waiting Time:", round(average, 2))
+	# Print waiting time process 1
+	print("P.No.\tArrival Time\t" , "Burst Time\tWaiting Time");
+	print("1" , "\t\t" , at[0] , "\t\t" , bt[0] , "\t\t" , wt[0]);
+
+	# Calculating waiting time for
+	# each process from the given
+	# formula #code here
+	for i in range(1,5):
+		wt[i] = (at[i - 1] + bt[i - 1] + wt[i - 1]) - at[i];
+
+		# Print the waiting time for
+		# each process
+		print(i + 1 , "\t\t" , at[i] , "\t\t" , bt[i] , "\t\t" , wt[i]);
+	
+
+	# Declare variable to calculate
+	# average
+	average = 0.0;
+	sum = 0;
+
+	# Loop to calculate sum of all
+	
+	#code here# waiting time
+	for i in range(5):
+		sum = sum + wt[i];
+	
+	# Find average waiting time
+
+	# by dividing it by no. of process
+	#code here
+	average = sum / 5;
+
+	# Print Average Waiting Time
+	print("Average waiting time = " , average);
 
 
-# Main Program
-N = 5
-at = [0, 1, 2, 3, 4]
-bt = []
+# Driver code
 
-print("Enter Burst Times for 5 Processes:")
-for i in range(N):
-    bt.append(int(input(f"Burst Time for P{i+1}: ")))
+	# Number of process
+N = 5;
 
-CalculateWaitingTime(at, bt, N)
+	# Array for Arrival time
+at = [ 0, 1, 2, 3, 4 ];
 
+	# Array for Burst Time
+bt=[]
+for i in range(0, 5):
+    ele = int(input())
+    bt.append(ele)
+	
+
+	# Function call to find
+	# waiting time
+CalculateWaitingTime(at, bt, N);
 ```
 
 ### OUTPUT
-```
-Enter Burst Times for 5 Processes:
-Burst Time for P1: 5
-Burst Time for P2: 3
-Burst Time for P3: 8
-Burst Time for P4: 6
-Burst Time for P5: 2
+<img width="1087" height="481" alt="image" src="https://github.com/user-attachments/assets/42471791-3439-4a33-a4f6-ee71baf49e6e" />
 
-P.No.   Arrival Time   Burst Time   Waiting Time
-1       0              5            0
-2       1              3            4
-3       2              8            6
-4       3              6            13
-5       4              2            16
-
-Average Waiting Time: 7.8
-
-```
 
 ### RESULT
 Thus, the Python program to implement CPU Process Scheduling using Queue was successfully executed and verified.
